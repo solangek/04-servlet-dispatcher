@@ -30,7 +30,7 @@ public class InternalServlet extends HttpServlet {
             out.println("<h1>" + request.getAttribute("message") + " " + u.getName() + "</h1>");
         } catch (Exception e) {
             // if some param is missing
-            out.println("<h1>Hello World</h1>");
+            out.println("<h1>Hello stranger</h1>");
         } finally {
             out.close();
         }
