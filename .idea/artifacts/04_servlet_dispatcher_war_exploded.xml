@@ -11,7 +11,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="04-servlet-dispatcher" />
+          <element id="module-output" name="05-servlet-dispatcher" />
         </element>
       </element>
       <element id="directory" name="META-INF">
