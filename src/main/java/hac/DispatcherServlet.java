@@ -29,21 +29,30 @@ public class DispatcherServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        // extract the user name from the request
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
+
         try {
+            // build User object
             User user = new User(firstName, lastName);
+            // store User object in request
             request.setAttribute("user", user);
+            // store another object in request
             request.setAttribute("message", "Welcome "); // add a message to the request
 
+            // forward request to InternalServlet and pass the request objects
             RequestDispatcher dispatcher = request.getRequestDispatcher("/InternalServlet");
             dispatcher.forward(request, response);
+
         } catch (Exception e) {
             // include the index.html (form) again
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/index.html");
-            dispatcher.include(request, response);
+            //RequestDispatcher dispatcher = request.getRequestDispatcher("/index.html");
+            //dispatcher.include(request, response);
+
+            // or (better) redirect to original form URL
+            response.sendRedirect("/index.html");
         }
-
-
     }
 }
