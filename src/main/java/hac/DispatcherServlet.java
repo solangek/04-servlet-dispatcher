@@ -15,8 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * A servlet that acts as a dispatcher: it forwards the request to anotehr servlet "InternalServlet"
- * or uses (include) a resource to send the response
+ * A servlet that acts as a dispatcher: it forwards the request
+ * to another servlet "InternalServlet". While passing the request,
+ * the first servlet adds a parameter to the request (setAttribute).
+ * The second servlet retrieves the parameter returns the response.
+ *
  * Note that the URL does not change for the user!
  * @author solangekarsenty
  * http://localhost/DispatcherServlet?userName=asdas
@@ -35,7 +38,7 @@ public class DispatcherServlet extends HttpServlet {
         String lastName = request.getParameter("lastName");
 
         try {
-            // build User object
+            // build a User object
             User user = new User(firstName, lastName);
             // store User object in request
             request.setAttribute("user", user);

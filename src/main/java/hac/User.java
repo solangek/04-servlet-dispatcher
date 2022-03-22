@@ -1,7 +1,7 @@
 package hac;
 
 /**
- * a sample class to hold some data to be used by servlets
+ * a sample class to hold some data to of our application
  */
 public class User {
 

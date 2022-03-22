@@ -12,9 +12,9 @@ import java.io.PrintWriter;
  * this servlet is not accessed directly.
  *
  * A servlet reading parameters:
- * the parameters are passed by another Servlet (DispatcherServlet_
- * It receives the request parameter "userName" and a request attribute "someparam"
- * from the Dispatcher and returns a response to the client.
+ * the parameters are passed by another Servlet (DispatcherServlet)
+ * It receives the request attributes "userName" and "message"
+ * from the Dispatcher and returns a simple HTML response to the client.
  *
  */
 @WebServlet(name = "Internal Servlet", urlPatterns = "/InternalServlet")
@@ -26,7 +26,7 @@ public class InternalServlet extends HttpServlet {
         try  {
             // read the information passed by the DispatcherServlet
             User u = (User) request.getAttribute("user");
-            // build the response
+            // build the response using the user and message
             out.println("<h1>" + request.getAttribute("message") + " " + u.getName() + "</h1>");
         } catch (Exception e) {
             // if some param is missing
